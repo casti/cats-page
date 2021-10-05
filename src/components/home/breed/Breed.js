@@ -4,8 +4,7 @@ import BreedList from "./BreedList";
 const Breed = () => {
   const { search } = useLocation();
   const [breeds, setBreeds] = useState([{ id: "None", name: "Select Breed" }]);
-  const [selectedItem, setSelectedItem] = useState("None");
-  const [breedId, setBreedId] = useState();
+  const [breedId, setBreedId] = useState("None");
   const getBreeds = async (selectedBreed) => {
     const res = await fetch("https://api.thecatapi.com/v1/breeds");
     const results = await res.json();
@@ -17,7 +16,6 @@ const Breed = () => {
     setBreeds([...breeds, ...items]);
     const selected = items.filter((x) => x.selected === true);
     if (selected[0]) {
-      setSelectedItem(selected[0].id);
       onBreedChange(selected[0].id);
     }
   };
@@ -40,7 +38,7 @@ const Breed = () => {
             </label>
             <select
               id="breed"
-              value={selectedItem}
+              value={breedId}
               className="form-select"
               onChange={(e) => onBreedChange(e.target.value)}
             >
