@@ -31,7 +31,9 @@ const Details = () => {
     <>
       {["NOT_FOUND", ""].includes(catItem.name) ? (
         <div className="container">
-          {!catItem.name ? "Loading..." : "Opps! Sorry cat not found."}
+          {!catItem.name
+            ? "Loading..."
+            : "Apologies but we could not load cat details for you at this time! Miau!"}
         </div>
       ) : (
         <div className="Cat">
